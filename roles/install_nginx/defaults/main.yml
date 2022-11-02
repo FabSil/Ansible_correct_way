@@ -1,0 +1,7 @@
+---
+
+#default ports for firewall 
+
+firewall_ports:
+  - {port: '80/tcp', state: 'enabled'}
+  - {port: '8080/tcp', state: 'enabled'}

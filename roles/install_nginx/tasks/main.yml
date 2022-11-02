@@ -1,0 +1,28 @@
+---
+
+
+# tareas para instalar nginx
+
+- name: Update dnf
+  dnf:
+    name: "*"
+    state: latest
+
+
+- name: Install nginx
+  dnf:
+    name: "nginx"
+    state: present
+
+- name: Open ports
+  firewalld:
+    zone: public
+    port: "{{item.port}}"
+    permanent: yes 
+    state: "{{item.state}}"
+  loop: "{{ firewall_ports }}"
+
+- name: Start nginx
+  service:
+    name: nginx
+    state: started 

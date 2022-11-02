@@ -1,0 +1,8 @@
+---
+
+# handler for change_index
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
