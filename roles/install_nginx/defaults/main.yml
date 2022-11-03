@@ -1,6 +1,6 @@
 ---
 # defaults file for install_nginx
-
+#CAMBIAR PUERTOS QUE SE QUIEREN AGREGAR EN AMBOS
 firewall_ports:
   - {port: '80/tcp', state: 'enabled'}
   - {port: '8080/tcp', state: 'enabled'}

@@ -1,2 +1,4 @@
 hosts: "VARIABLE DE HOSTS SLAVE2"
+firewall_ports:
+  - {port: '8080/tcp', state: 'enabled' }
 
