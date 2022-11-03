@@ -1,6 +1,5 @@
 ---
-
-#default ports for firewall 
+# defaults file for install_nginx
 
 firewall_ports:
   - {port: '80/tcp', state: 'enabled'}

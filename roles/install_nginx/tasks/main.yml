@@ -1,28 +1,32 @@
 ---
-
-
-# tareas para instalar nginx
-
-- name: Update dnf
+# tasks file for install_nginx
+- name: dnf update
   dnf:
     name: "*"
     state: latest
 
-
-- name: Install nginx
+- name: install nginx
   dnf:
     name: "nginx"
     state: present
+
+- name: start nginx
+  service:
+    name: "nginx"
+    state: started
 
 - name: Open ports
   firewalld:
     zone: public
     port: "{{item.port}}"
-    permanent: yes 
+    permanent: yes
     state: "{{item.state}}"
-  loop: "{{ firewall_ports }}"
+  loop: "{{firewall_ports}}"
 
-- name: Start nginx
-  service:
-    name: nginx
-    state: started 
+
+- name: change index
+  template: 
+    src: ./templates/index.html.j2
+    dest: /usr/share/nginx/html/index.html
+  notify:
+    - restart nginx

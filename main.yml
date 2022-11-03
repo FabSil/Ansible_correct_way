@@ -7,5 +7,4 @@
   tasks: 
   roles:
     - role: install_nginx
-    - role: change_index
 
