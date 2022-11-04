@@ -1,0 +1,5 @@
+--- 
+- name: install_apache
+  dnf: 
+    name: "{{name_service}}"
+    state: present

@@ -1,0 +1,26 @@
+---
+# tasks file for install_apache
+- name: 
+  set_fact:
+    name_service: "apache2"
+  when: (ansible_os_family == 'Debian')
+
+- name: Install_apache Rocky
+  import_tasks: apache_install.yml
+
+- name: "{{name_service}} off"
+  service:
+    name: "{{name_service}}"
+    state: stopped
+  tags:
+    - off_apache
+
+- name: Open ports
+  firewalld:
+    zone: public
+    port: "{{item.port}}"
+    permanent: yes
+    state: "{{item.state}}"
+  loop: "{{firewall_ports}}"
+  tags: 
+    - firewall
