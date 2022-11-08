@@ -1,5 +1,5 @@
 --- 
 - name: install_apache
   dnf: 
-    name: "{{name_service}}"
+    name: "{{ansible_local.custom.service.name_service}}"
     state: present

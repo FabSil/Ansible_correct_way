@@ -4,3 +4,12 @@
 firewall_ports:
   - {port: '80/tcp', state: 'enabled'}
   - {port: '8080/tcp', state: 'enabled'}
+
+# USERS 
+users:
+  - {user: 'User1', passw: '12345'}
+  - {user: 'User2', passw: '12345'}
+  - {user: 'User3', passw: '12345'}
+
+#FAMILY_OS
+Debian: false

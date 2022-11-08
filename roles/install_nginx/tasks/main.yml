@@ -4,16 +4,22 @@
   dnf:
     name: "*"
     state: latest
+  tags:
+    - dnf_update
 
 - name: install nginx
   dnf:
     name: "nginx"
     state: present
+  tags:
+    - install_nginx
 
 - name: start nginx
   service:
     name: "nginx"
     state: started
+  tags:
+    - nginx_start
 
 - name: Open ports
   firewalld:
@@ -22,7 +28,13 @@
     permanent: yes
     state: "{{item.state}}"
   loop: "{{firewall_ports}}"
+  tags: 
+    - firewall
 
+- name: custom_facts
+  import_tasks: custom_fact.yml
+  tags:
+    - custom
 
 - name: change index
   template: 
@@ -30,3 +42,13 @@
     dest: /usr/share/nginx/html/index.html
   notify:
     - restart nginx
+  tags:
+    - index
+
+- name: os_family
+  set_fact:
+    Debian: true
+  when: (ansible_os_family == 'Debian') 
+  tags: 
+    - os_family
+

@@ -1,0 +1,6 @@
+[service]
+{%if ansible_os_family== 'Debian' %}
+name_service=apache2
+{%else%}
+name_service=httpd
+{%endif%}

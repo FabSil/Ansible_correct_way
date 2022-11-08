@@ -6,6 +6,6 @@
   become: true
   tasks: 
   roles:
-#    - role: install_nginx
+    - role: install_nginx
     - role: install_apache
 

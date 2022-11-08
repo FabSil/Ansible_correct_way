@@ -4,3 +4,14 @@
 <br> SO VERSION= {{ansible_distribution_version}}
 <br> GRUPO= {{grupo}}
 <br> HOST= {{hosts}}
+{% for var1 in users %} 
+<br>User:{{var1.user}}
+<br>Pass:{{var1.passw}}
+{%endfor%}
+<br> {%if Debian%} 
+	OS_FAMILY= Debian
+     {%else%}
+	OS_FAMILY= RedHat
+     {%endif%}
+<br> {{ansible_local.custom.service.name_service}}
+
