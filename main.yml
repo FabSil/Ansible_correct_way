@@ -6,6 +6,7 @@
   become: true
   tasks: 
   roles:
+    - role: prerequisitos
     - role: install_nginx
     - role: install_apache
-
+    - role: user_create

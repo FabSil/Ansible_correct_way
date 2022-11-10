@@ -1,8 +1,0 @@
----
-# tasks file for nginx_custo
-- name:
-  get_url:
-    dest: /home/ansible/
-    url: https://github.com/FabSil/Ansible_correct_way/blob/53aadfb0da66ee638a7d41c655814d81206edc14/ansible.cfg
-  tags:
-    - url
