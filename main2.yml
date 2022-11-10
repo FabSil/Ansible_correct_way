@@ -1,0 +1,9 @@
+---
+- name: PLbook
+  hosts: all
+  become: true
+  tasks:
+  roles:
+   # - role: prerequisitos
+    - role: user_create
+   # - role: nginx_custom

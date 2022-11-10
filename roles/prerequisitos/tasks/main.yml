@@ -1,0 +1,32 @@
+---
+# tasks file for prerequisitos
+
+- name: disable selinux
+  selinux:
+    state: disabled
+  tags:
+    - selinux
+
+- name: dns
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ansible_host}} {{ansible_hostname}}.lab.data.com.py"
+  tags: 
+    - dns
+
+- name: firewall
+  firewalld:
+    zone: public
+    port: "{{port_firewall}}"
+    permanent: yes
+    state: enabled
+  tags:
+    - firewall
+
+- name: directory 
+  file:
+    path: /root/custom_dir
+    state: directory
+  tags:
+    - directory
+    

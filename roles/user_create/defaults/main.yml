@@ -1,0 +1,6 @@
+---
+# defaults file for user_create
+new_users:
+  - {user: 'jfranco', passwd: '$6$mysecretsalt$ibwqL9ec3E2nxrMEpqTNutc/AX2jjLLHGuOW/MFvfrY3v1NkG58xy0ejUA8YYiJPMaqgCOkcjt/bQAq98W77d.', group: 'wheel'}
+  - {user: 'jose', passwd: '$6$mysecretsalt$ZB9R8AirQYAXhtfhOo2qdJz52FyNI6v3L6Uc3KNRP.arBKIYpcuEyQewT5qBAHoyQFwHkW6Z551Ql.cZ53GeY0', shell: '/bin/sh'}
+  - {user: 'pedro', passwd: '$6$mysecretsalt$xgZBjpJOOuVnjTN2y9NWYEs7T.RE1ivBz17zx92DUxkkOl2Gr1YyL8rtlfjwLG5wHzL3UOwVdYrNbFw9xOwf.1', home: '/'}
