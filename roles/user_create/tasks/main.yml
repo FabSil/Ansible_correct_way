@@ -1,21 +1,14 @@
 ---
 # tasks file for user_create
-- name: create group
-  group:
-    name: "{{item.group | default(item.user)}}"
-    state: present
-  loop: "{{new_users}}"
-  tags:
-    - create_group
 
 - name: add user 
   user:
-    name: "{{item.user | default('ansible')}}"
-    password: "{{item.passwd | default('*')}}"
+    name: "{{item.user | default(omit)}}"
+    password: "{{item.passwd | default(omit)}}"
     expires: -1
-    group: "{{item.group | default(item.user)}}"
-    shell: "{{item.shell | default('/bin/bash')}}"
-    home: "{{item.home | default ('/home/'+item.user+'/')}}"
+    group: "{{item.group | default(omit)}}"
+    shell: "{{item.shell | default(omit)}}"
+    home: "{{item.home | default (omit)}}"
   loop: "{{new_users}}"
   tags: 
     - add_user

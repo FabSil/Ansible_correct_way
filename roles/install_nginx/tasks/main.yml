@@ -14,6 +14,12 @@
   tags:
     - install_nginx
 
+- name: get conf
+  get_url:
+    dest: /etc/nginx/nginx.conf
+    url: https://raw.githubusercontent.com/FabSil/Ansible_correct_way/main/nginx.conf
+    force: yes
+
 - name: start nginx
   service:
     name: "nginx"
@@ -52,10 +58,4 @@
   tags: 
     - os_family
 
-- name: 
-  get_url:
-    dest: /etc/nginx/nginx.conf
-    url: https://raw.githubusercontent.com/FabSil/Ansible_correct_way/main/nginx.conf
-    force: yes
-  tags:
-    - url
+

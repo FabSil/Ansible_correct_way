@@ -10,14 +10,14 @@
 - name: dns
   lineinfile:
     path: /etc/hosts
-    line: "{{ansible_host}} {{ansible_hostname}}.lab.data.com.py"
+    line: "{{ansible_default_ipv4.address}} {{ansible_hostname}}.lab.data.com.py"
   tags: 
     - dns
 
 - name: firewall
   firewalld:
     zone: public
-    port: "{{port_firewall}}"
+    service: http
     permanent: yes
     state: enabled
   tags:
